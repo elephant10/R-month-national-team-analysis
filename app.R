@@ -207,11 +207,16 @@ server <- function(input, output, session = session) {
                         geom_bar( aes(fill = month))}
                     else{
                       geom_bar(position = "fill", aes(fill = month))
-                    }
-                         
+                    }                       
                     }
               } + {if(ageAbsolute() == "relative") 
                 scale_y_continuous(name = "share", labels = x <- (function (x) paste(100 * x, "%"))) }+
+                {if(ageAbsolute() != "heat map") scale_fill_manual(values = 
+                                        c("#000099", "#1b98e0",
+                                          "#00f700", "#008000",  "#004d00",
+                                          "#ff7777",   "#ff0000", "#aa0000",
+                                           "#ffff55",  "#ffff00",   "#aaaa00",
+                                          "#9999ff"))  }+
               labs(fill = case_when(ageAbsolute() == "heat map" ~ "number",
                                     ageAbsolute() == "absolute" ~ "month",
                                     ageAbsolute() == "relative" ~ "month"))+ 
@@ -258,6 +263,12 @@ server <- function(input, output, session = session) {
                         fill = month))+
              geom_bar(stat = "count") +  scale_x_reverse()+
              scale_x_discrete(name = "month of birth")+ 
+             scale_fill_manual(values = 
+                                 c("#000099", "#1b98e0",
+                                   "#00f700", "#008000",  "#004d00",
+                                   "#ff7777",   "#ff0000", "#aa0000",
+                                   "#ffff55",  "#ffff00",   "#aaaa00",
+                                   "#9999ff"))+
                 
              
              {if(chosen_sex()){
