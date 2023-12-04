@@ -1,0 +1,12 @@
+name: ShinyNationalTeam
+title: ShinyNationalTeam
+username: vsevolod-bolotov
+account: vsevolod-bolotov
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10265685
+bundleId: 7835492
+url: https://vsevolod-bolotov.shinyapps.io/ShinyNationalTeam/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
